@@ -1,12 +1,15 @@
 ﻿using System;
 
-public interface IFSMState<T>
+namespace FSM
 {
-	T StateType{ get; }
+	public interface IFSMState<T>
+	{
+		T StateType{ get; }
 
-	void _Enter ();
+		void _Enter (FSMParam<T> enterParam);
 
-	void _Tick (float delta);
+		void _Tick (float delta);
 
-	void _Leave ();
+		void _Leave (FSMParam<T> leaveParam);
+	}
 }

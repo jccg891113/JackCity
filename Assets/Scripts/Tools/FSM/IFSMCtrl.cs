@@ -1,8 +1,11 @@
 ﻿using System;
 
-public interface IFSMCtrl<T>
+namespace FSM
 {
-	void Tick (float deltaTime);
+	public interface IFSMCtrl<T>
+	{
+		void Tick (float deltaTime);
 
-	void Goto (T nextStateType, bool allowSameState);
+		void Goto (T nextStateType, object enterParam, bool allowSameState);
+	}
 }
