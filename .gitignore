@@ -4,6 +4,10 @@ JackCity.sln
 Assembly-UnityScript.unityproj
 
 Library/
+Temp/
+obj/
 Assembly-CSharp.csproj
 
 JackCity.userprefs
+
+Assembly-CSharp-Editor.csproj
