@@ -19,10 +19,16 @@ using UnityEngine;
 /// </summary>
 public class MapData
 {
+	#region Fields
+
 	public int baseSize;
 	public int x;
 	public int y;
 	public MapGroup[] datas;
+
+	#endregion
+
+	#region Constructors
 
 	public MapData (MapInitSize size)
 	{
@@ -45,9 +51,13 @@ public class MapData
 		datas = new MapGroup[realSize];
 		for (int i = 0; i < realSize; i++) {
 			datas [i] = new MapGroup (baseSize);
-			datas [i].SetId (i);
+			datas [i].SetPos (i / y, i % y, x, y);
 		}
 	}
+
+	#endregion
+
+	#region Methods
 
 	public void ExtendMap (Direction direction)
 	{
@@ -67,7 +77,7 @@ public class MapData
 						} else {
 							datas [id] = tmp [oldId++];
 						}
-						datas [id].SetId (id);
+						datas [id].SetPos (i, j, x, y);
 					}
 				}
 			}
@@ -85,7 +95,7 @@ public class MapData
 						} else {
 							datas [id] = tmp [oldId++];
 						}
-						datas [id].SetId (id);
+						datas [id].SetPos (i, j, x, y);
 					}
 				}
 			}
@@ -101,7 +111,7 @@ public class MapData
 					} else {
 						datas [i] = tmp [i - y];
 					}
-					datas [i].SetId (i);
+					datas [i].SetPos (i / y, i % y, x, y);
 				}
 			}
 			break;
@@ -117,10 +127,22 @@ public class MapData
 					} else {
 						datas [i] = new MapGroup (baseSize);
 					}
-					datas [i].SetId (i);
+					datas [i].SetPos (i / y, i % y, x, y);
 				}
 			}
 			break;
 		}
 	}
+
+	public MapItem GetMapItemData (int x, int y)
+	{
+		int bigX = x / baseSize;
+		int smallX = x % baseSize;
+		int bigY = y / baseSize;
+		int smallY = y % baseSize;
+		MapGroup tmp = datas [bigX * this.y + bigY];
+		return tmp.datas [smallX * baseSize + smallY];
+	}
+
+	#endregion
 }
