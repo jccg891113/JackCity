@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Diagnostics;
 
+[Serializable]
 public class CList<T> : IList<T>
 {
 	private int size = 0;
