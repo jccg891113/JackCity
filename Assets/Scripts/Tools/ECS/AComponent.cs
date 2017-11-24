@@ -2,10 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Subway
+public abstract class AComponent
 {
-	public class SubwayStation
-	{
-		public long station;
-	}
+	public abstract int CTID { get; }
 }
