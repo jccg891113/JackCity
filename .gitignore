@@ -6,8 +6,13 @@ Assembly-UnityScript.unityproj
 Library/
 Temp/
 obj/
+.vs/
+UnityPackageManager/
+
 Assembly-CSharp.csproj
 
 JackCity.userprefs
+JackCity.csproj
+JackCity.Editor.csproj
 
 Assembly-CSharp-Editor.csproj

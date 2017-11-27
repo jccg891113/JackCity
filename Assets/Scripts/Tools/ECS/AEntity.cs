@@ -4,9 +4,14 @@ using UnityEngine;
 
 public abstract class AEntity
 {
-	public abstract long UID { get; }
+    public long UID { get; private set; }
 	public HashSet<int> compHash;
 	public Dictionary<int, AComponent> componentPool;
+
+    public void SetUID(long UID)
+    {
+        this.UID = UID;
+    }
 
 	public void RegComp (AComponent comp)
 	{

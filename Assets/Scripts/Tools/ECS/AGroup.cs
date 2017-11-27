@@ -8,7 +8,10 @@ public abstract class AGroup
 
 	public HashSet<long> entityUIDHash;
 	public List<AEntity> entityList;
-
+    
+    /// <summary>
+    /// 注册实体
+    /// </summary>
 	public void RegEntity (AEntity entity)
 	{
 		if (careCompHash.IsSubsetOf (entity.compHash)) {
@@ -17,6 +20,9 @@ public abstract class AGroup
 		}
 	}
 
+    /// <summary>
+    /// 删除实体
+    /// </summary>
 	public void DelEntity (long entityUID)
 	{
 		if (entityUIDHash.Contains (entityUID)) {
