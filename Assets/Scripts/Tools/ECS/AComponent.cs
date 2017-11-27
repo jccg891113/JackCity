@@ -5,4 +5,5 @@ using UnityEngine;
 public abstract class AComponent
 {
 	public abstract int CTID { get; }
+	public AEntity owner;
 }
